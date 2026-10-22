@@ -1,0 +1,12 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.streamlit/secrets.toml
+uploads/
+tmp/
+*.wav
+*.mp3
+class recordings*/
