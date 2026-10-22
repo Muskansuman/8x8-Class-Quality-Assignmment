@@ -30,6 +30,8 @@ def analyze_recording(
     llm_model: str | None = None,
     llm_provider: str | None = None,
     llm_base_url: str | None = None,
+    whisper_use_gpu: bool = False,
+    whisper_device: str | None = None,
     on_progress: ProgressFn | None = None,
 ) -> dict:
     progress = on_progress or _noop
@@ -55,6 +57,8 @@ def analyze_recording(
             segments = transcribe_wav(
                 wav,
                 model_size=whisper_model,
+                use_gpu=whisper_use_gpu,
+                device=whisper_device,
                 on_progress=progress,
             )
         transcript_source = f"whisper:{whisper_model}"
@@ -81,6 +85,8 @@ def analyze_recording(
             "duration_sec": duration,
             "transcript_source": transcript_source,
             "segment_count": len(segments),
+            "whisper_use_gpu": whisper_use_gpu,
+            "whisper_device": whisper_device,
         },
     }
 

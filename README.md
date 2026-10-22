@@ -2,6 +2,13 @@
 
 AI-powered prototype for the **Humaniti AI Build Challenge**: assess an online class recording as **Poor**, **Average**, **Good**, or **Excellent**, with evidence-based observations.
 
+## Live demo
+
+<!-- After Streamlit deploy, replace the URL below and uncomment the line. -->
+<!-- **[Open the hosted app](https://YOUR-APP-NAME.streamlit.app)** -->
+
+**Hosted app:** _Deploy on Streamlit Cloud and paste your link here_ — see [DEPLOYMENT.md](DEPLOYMENT.md).
+
 ## Approach
 
 - **Pretrained models only** (no custom training).
@@ -73,9 +80,16 @@ python scripts/eval_local.py
 
 ## Deploy
 
-Suitable hosts: [Streamlit Community Cloud](https://streamlit.io/cloud), Hugging Face Spaces, Render.
+Step-by-step: **[DEPLOYMENT.md](DEPLOYMENT.md)** (Streamlit Community Cloud).
 
-For cloud deploy with Ollama you need a host that runs Ollama, or switch to `LLM_PROVIDER=openai` and set `OPENAI_API_KEY`.
+Quick checklist:
+
+1. Push repo to GitHub (no recordings / no `.env`).
+2. [Streamlit Cloud](https://share.streamlit.io) → New app → `app.py`.
+3. Set **Secrets** (`OPENAI_API_KEY` + `LLM_PROVIDER=openai` for cloud; Ollama is local-only).
+4. Copy your `https://….streamlit.app` URL into **Live demo** above and the challenge form.
+
+Files used by Streamlit: `requirements.txt`, `packages.txt` (ffmpeg), `.streamlit/config.toml`.
 
 ## Limitations
 
